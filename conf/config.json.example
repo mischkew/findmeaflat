@@ -1,4 +1,5 @@
 {
+  "db_path": "/var/findmeaflat-db/db.json",
   "blacklist": [
     "swap",
     "tausch",

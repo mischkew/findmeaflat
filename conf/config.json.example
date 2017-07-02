@@ -31,6 +31,6 @@
     "city": "Berlin",
     "cityKey": 8,
     "maxRent": 9999,
-    "minSize": 99,
+    "minSize": 99
   }
 }

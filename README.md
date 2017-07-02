@@ -3,18 +3,35 @@
 Crawls popular german real estate portals for new listings. Notifications are
 being sent via [Telegram](https://telegram.org).
 
-## Installation
+## Installation & Usage: Native
 
 ```
-npm install
+# install the packages
+npm install # or use: yarn install
+
+# start the crawler
+npm start
 ```
 
-## Usage
+## Installation & Usage: Docker
+
+```
+# Build the Dockerfile
+make build
+
+# start the app and follow the logs
+make start && make logs
+
+# ... or launch an interactive shell with mount bindings for dev mode
+make dev
+```
+
+## Configuration Setup
 
 The configuration file is located in `conf/`.
 
 ```
-vim conf/config.json
+cp conf/config.json.example conf/config.json
 ```
 
 ```json
@@ -35,7 +52,7 @@ vim conf/config.json
     "city": "Berlin",
     "cityKey": 8,
     "maxRent": 9999,
-    "minSize": 99,
+    "minSize": 99
   },
   "telegram": {
     "chatId": "yourChatId",
@@ -49,7 +66,8 @@ vim conf/config.json
   "wantedDistricts": [
     "Wedding",
     "Friedrichshain"
-  ]
+  ],
+  "dp_path": "/var/findmeaflat-db/db.json"
 }
 ```
 

@@ -1,0 +1,4 @@
+.git
+conf/config.json.example
+.DS_Store
+node_modules

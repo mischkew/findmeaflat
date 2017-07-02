@@ -29,6 +29,7 @@
     "token": "yourToken"
   },
   "wggesucht": {
+    "disabled": false,
     "city": "Berlin",
     "cityKey": 8,
     "maxRent": 9999,

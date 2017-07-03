@@ -16,16 +16,20 @@ const enabledPlatforms = [
 
 setInterval((function exec () {
   console.log(`Crawling from ${enabledPlatforms}`)
-  notify.send(
-    '\n*Crawling most recent listings from' +
-    ` ${enabledPlatforms.join(', ')}.*\n\n`)
 
   Promise.all(sources.map(source => require(`${path}/${source}`).run()))
     .then((results) => {
       console.log(results)
-      const count = Array.prototype.concat(...results.filter(v => v !== false)).length
-      console.log(`Crawled ${count} new listings.`)
-      notify.send(`Finished crawling ${count} new listings.`)
+	    const count = Array.prototype
+        .concat(...results.filter(v => v !== false))
+        .length
+
+	    if (count > 0) {
+	       notify.send(`Finished crawling ${count} new listings.`)
+	       notify.send('\n*Crawling most recent listings from' +
+	                   ` ${enabledPlatforms.join(', ')}.*\n\n`)
+	    }
+	    console.log(`Crawled ${count} new listings.`)
     })
 
   return exec
